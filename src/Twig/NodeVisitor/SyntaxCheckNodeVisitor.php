@@ -4,6 +4,8 @@ namespace MewesK\TwigSpreadsheetBundle\Twig\NodeVisitor;
 
 use MewesK\TwigSpreadsheetBundle\Twig\Node\BaseNode;
 use MewesK\TwigSpreadsheetBundle\Twig\Node\DocumentNode;
+use Twig\Environment;
+use Twig\Node\Node;
 
 /**
  * Class SyntaxCheckNodeVisitor.
@@ -50,7 +52,7 @@ class SyntaxCheckNodeVisitor extends \Twig_BaseNodeVisitor
     /**
      * {@inheritdoc}
      */
-    protected function doLeaveNode(\Twig_Node $node, \ Twig_Environment $env)
+    protected function doLeaveNode(Node $node, Environment $env)
     {
         array_pop($this->path);
 
