@@ -45,7 +45,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testDocumentErrorTextAfter($format)
     {
         $this->expectException(SyntaxError::class);
-        $this->expectExceptionMessage('Node "Twig_Node_Text" is not allowed after Node "MewesK\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
+        $this->expectExceptionMessage('documentErrorTextAfter.twig');
 
         $this->getDocument('documentErrorTextAfter', $format);
     }
@@ -60,7 +60,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testDocumentErrorTextBefore($format)
     {
         $this->expectException(SyntaxError::class);
-        $this->expectExceptionMessage('Node "Twig_Node_Text" is not allowed before Node "MewesK\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
+        $this->expectExceptionMessage('documentErrorTextBefore.twig');
 
         $this->getDocument('documentErrorTextBefore', $format);
     }
@@ -75,7 +75,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testStartCellIndexError($format)
     {
         $this->expectException(\TypeError::class);
-        $this->expectExceptionMessage('Argument 1 passed to MewesK\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper::startCell() must be of the type integer');
+        $this->expectExceptionMessage('MewesK\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper::startCell(): Argument #1 ($index) must be of type ?int');
 
         $this->getDocument('cellIndexError', $format);
     }
@@ -90,7 +90,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testStartRowIndexError($format)
     {
         $this->expectException(\TypeError::class);
-        $this->expectExceptionMessage('Argument 1 passed to MewesK\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper::startRow() must be of the type integer');
+        $this->expectExceptionMessage('MewesK\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper::startRow(): Argument #1 ($index) must be of type ?int');
 
         $this->getDocument('rowIndexError', $format);
     }
