@@ -35,7 +35,7 @@ abstract class BaseFunctionalTest extends WebTestCase
      *
      * @throws \Symfony\Component\Filesystem\Exception\IOException
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         // remove temp files
         Filesystem::remove(sprintf('%s/%s', static::CACHE_PATH, str_replace('\\', DIRECTORY_SEPARATOR, static::class)));
@@ -68,7 +68,7 @@ abstract class BaseFunctionalTest extends WebTestCase
     /**
      * @throws \Symfony\Component\Filesystem\Exception\IOException
      */
-    public function setUp()
+    public function setUp(): void
     {
         // create client
         static::$client = static::createClient(['environment' => static::$ENVIRONMENT, 'debug' => false]);
