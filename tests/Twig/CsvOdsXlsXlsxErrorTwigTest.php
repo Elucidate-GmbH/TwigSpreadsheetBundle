@@ -1,6 +1,7 @@
 <?php
 
 namespace MewesK\TwigSpreadsheetBundle\Tests\Twig;
+use Twig\Error\SyntaxError;
 
 /**
  * Class CsvOdsXlsXlsxErrorTwigTest.
@@ -28,7 +29,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
      */
     public function testDocumentError($format)
     {
-        $this->expectException(\Twig_Error_Syntax::class);
+        $this->expectException(SyntaxError::class);
         $this->expectExceptionMessage('Node "MewesK\TwigSpreadsheetBundle\Twig\Node\DocumentNode" is not allowed inside of Node "MewesK\TwigSpreadsheetBundle\Twig\Node\SheetNode"');
 
         $this->getDocument('documentError', $format);
@@ -43,7 +44,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
      */
     public function testDocumentErrorTextAfter($format)
     {
-        $this->expectException(\Twig_Error_Syntax::class);
+        $this->expectException(SyntaxError::class);
         $this->expectExceptionMessage('Node "Twig_Node_Text" is not allowed after Node "MewesK\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
 
         $this->getDocument('documentErrorTextAfter', $format);
@@ -58,7 +59,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
      */
     public function testDocumentErrorTextBefore($format)
     {
-        $this->expectException(\Twig_Error_Syntax::class);
+        $this->expectException(SyntaxError::class);
         $this->expectExceptionMessage('Node "Twig_Node_Text" is not allowed before Node "MewesK\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
 
         $this->getDocument('documentErrorTextBefore', $format);
@@ -103,7 +104,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
      */
     public function testSheetError($format)
     {
-        $this->expectException(\Twig_Error_Syntax::class);
+        $this->expectException(SyntaxError::class);
         $this->expectExceptionMessage('Node "MewesK\TwigSpreadsheetBundle\Twig\Node\RowNode" is not allowed inside of Node "MewesK\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
 
         $this->getDocument('sheetError', $format);

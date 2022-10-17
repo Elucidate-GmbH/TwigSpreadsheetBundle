@@ -5,6 +5,7 @@ namespace MewesK\TwigSpreadsheetBundle\Wrapper;
 use MewesK\TwigSpreadsheetBundle\Helper\Filesystem;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use PhpOffice\PhpSpreadsheet\Worksheet\HeaderFooterDrawing;
+use Twig\Environment;
 
 /**
  * Class DrawingWrapper.
@@ -33,12 +34,12 @@ class DrawingWrapper extends BaseWrapper
      * DrawingWrapper constructor.
      *
      * @param array               $context
-     * @param \Twig_Environment   $environment
+     * @param Environment   $environment
      * @param SheetWrapper        $sheetWrapper
      * @param HeaderFooterWrapper $headerFooterWrapper
      * @param array             $attributes
      */
-    public function __construct(array $context, \Twig_Environment $environment, SheetWrapper $sheetWrapper, HeaderFooterWrapper $headerFooterWrapper, array $attributes = [])
+    public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper, HeaderFooterWrapper $headerFooterWrapper, array $attributes = [])
     {
         parent::__construct($context, $environment);
 

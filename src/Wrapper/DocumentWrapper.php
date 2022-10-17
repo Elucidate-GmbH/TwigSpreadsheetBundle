@@ -10,6 +10,8 @@ use PhpOffice\PhpSpreadsheet\Writer\BaseWriter;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
 use PhpOffice\PhpSpreadsheet\Writer\Pdf\Mpdf;
 use Symfony\Bridge\Twig\AppVariable;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 /**
  * Class DocumentWrapper.
@@ -29,10 +31,10 @@ class DocumentWrapper extends BaseWrapper
      * DocumentWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig_Environment $environment
+     * @param Environment $environment
      * @param array             $attributes
      */
-    public function __construct(array $context, \Twig_Environment $environment, array $attributes = [])
+    public function __construct(array $context, Environment $environment, array $attributes = [])
     {
         parent::__construct($context, $environment);
 
@@ -207,9 +209,9 @@ class DocumentWrapper extends BaseWrapper
     {
         $loader = $this->environment->getLoader();
 
-        if ($loader instanceof \Twig_Loader_Filesystem && mb_strpos($path, '@') === 0) {
+        if ($loader instanceof FilesystemLoader && mb_strpos($path, '@') === 0) {
             /*
-             * @var \Twig_Loader_Filesystem
+             * @var FilesystemLoader
              */
             foreach ($loader->getNamespaces() as $namespace) {
                 if (mb_strpos($path, $namespace) === 1) {

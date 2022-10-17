@@ -94,7 +94,7 @@ class TwigSpreadsheetExtension extends AbstractExtension
      * @param array $style1
      * @param array $style2
      *
-     * @throws \Twig_Error_Runtime
+     * @throws RuntimeError
      *
      * @return array
      */
@@ -109,13 +109,13 @@ class TwigSpreadsheetExtension extends AbstractExtension
     /**
      * @param array $context
      *
-     * @throws \Twig_Error_Runtime
+     * @throws RuntimeError
      *
      * @return int|null
      */
     public function getCurrentColumn(array $context) {
         if (!isset($context[PhpSpreadsheetWrapper::INSTANCE_KEY])) {
-            throw new \Twig_Error_Runtime('The PhpSpreadsheetWrapper instance is missing.');
+            throw new RuntimeError('The PhpSpreadsheetWrapper instance is missing.');
         }
         return $context[PhpSpreadsheetWrapper::INSTANCE_KEY]->getCurrentColumn();
     }
@@ -123,13 +123,13 @@ class TwigSpreadsheetExtension extends AbstractExtension
     /**
      * @param array $context
      *
-     * @throws \Twig_Error_Runtime
+     * @throws RuntimeError
      *
      * @return int|null
      */
     public function getCurrentRow(array $context) {
         if (!isset($context[PhpSpreadsheetWrapper::INSTANCE_KEY])) {
-            throw new \Twig_Error_Runtime('The PhpSpreadsheetWrapper instance is missing.');
+            throw new RuntimeError('The PhpSpreadsheetWrapper instance is missing.');
         }
         return $context[PhpSpreadsheetWrapper::INSTANCE_KEY]->getCurrentRow();
     }
