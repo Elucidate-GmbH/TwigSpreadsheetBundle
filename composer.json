@@ -25,7 +25,7 @@
         "phpoffice/phpspreadsheet": "^1.25"
     },
     "require-dev": {
-        "sensio/framework-extra-bundle": "~3.0|~4.0",
+        "doctrine/annotations": "^1.13",
         "symfony/browser-kit": "^6.1",
         "symfony/phpunit-bridge": "^6.1",
         "symfony/routing": "^4.4 || ^5.4 || ^6.1",

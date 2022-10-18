@@ -3,8 +3,6 @@ framework:
     test: true
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
-    templating:
-        engines: ['twig']
 
 twig:
     debug:            "%kernel.debug%"
