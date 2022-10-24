@@ -17,10 +17,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('mewes_k_twig_spreadsheet');
+        $treeBuilder = new TreeBuilder('twig_spreadsheet_bundle');
 
-        $rootNode
+        $treeBuilder->getRootNode()
             ->children()
                 ->booleanNode('pre_calculate_formulas')
                     ->defaultTrue()
