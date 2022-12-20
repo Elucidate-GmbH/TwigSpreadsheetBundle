@@ -1,6 +1,7 @@
 <?php
 
 namespace MewesK\TwigSpreadsheetBundle\Wrapper;
+use Twig\Environment;
 
 /**
  * Class BaseWrapper.
@@ -13,7 +14,7 @@ abstract class BaseWrapper
     protected $context;
 
     /**
-     * @var \Twig_Environment
+     * @var Environment
      */
     protected $environment;
 
@@ -30,9 +31,9 @@ abstract class BaseWrapper
      * BaseWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig_Environment $environment
+     * @param Environment $environment
      */
-    public function __construct(array $context, \Twig_Environment $environment)
+    public function __construct(array $context, Environment $environment)
     {
         $this->context = $context;
         $this->environment = $environment;

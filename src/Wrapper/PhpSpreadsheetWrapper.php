@@ -1,6 +1,7 @@
 <?php
 
 namespace MewesK\TwigSpreadsheetBundle\Wrapper;
+use Twig\Environment;
 
 /**
  * Class PhpSpreadsheetWrapper.
@@ -63,10 +64,10 @@ class PhpSpreadsheetWrapper
      * PhpSpreadsheetWrapper constructor.
      *
      * @param array             $context
-     * @param \Twig_Environment $environment
+     * @param Environment $environment
      * @param array             $attributes
      */
-    public function __construct(array $context, \Twig_Environment $environment, array $attributes = [])
+    public function __construct(array $context, Environment $environment, array $attributes = [])
     {
         $this->documentWrapper = new DocumentWrapper($context, $environment, $attributes);
         $this->sheetWrapper = new SheetWrapper($context, $environment, $this->documentWrapper);

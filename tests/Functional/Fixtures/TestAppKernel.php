@@ -23,12 +23,11 @@ class TestAppKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function registerBundles()
+    public function registerBundles(): iterable
     {
         return [
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new \Symfony\Bundle\TwigBundle\TwigBundle(),
-            new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new \MewesK\TwigSpreadsheetBundle\MewesKTwigSpreadsheetBundle(),
             new \MewesK\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\TestBundle(),
         ];
@@ -41,13 +40,18 @@ class TestAppKernel extends Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(sprintf('%s/config/config_%s.yml', $this->rootDir, $this->getEnvironment()));
+        $loader->load(sprintf(__DIR__ . '/config/config_%s.yml', $this->getEnvironment()));
+    }
+
+    public function getProjectDir(): string
+    {
+        return __DIR__;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getCacheDir()
+    public function getCacheDir(): string
     {
         return $this->cacheDir;
     }
@@ -63,7 +67,7 @@ class TestAppKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function getLogDir()
+    public function getLogDir(): string
     {
         return $this->logDir;
     }
